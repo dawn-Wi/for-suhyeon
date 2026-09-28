@@ -31,7 +31,7 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* 떠다니는 파스텔 동그라미 */
+/* �좊떎�덈뒗 �뚯뒪�� �숆렇�쇰� */
 .blob {
   position: fixed;
   border-radius: 50%;
@@ -81,12 +81,50 @@ body {
   white-space: pre-line;
 }
 
-/* 긴 글(홈 인사말, 사과문)은 조금 작게, 왼쪽 정렬 */
+/* 湲� 湲�(�� �몄궗留�, �ш낵臾�)�� 議곌툑 �묎쾶, �쇱そ �뺣젹 */
 .text.long {
   font-size: 16px;
   line-height: 1.9;
   text-align: left;
 }
+
+/* �ъ쭊 (�놁쑝濡� �섍꺼蹂닿린) */
+.gallery { margin: -8px 0 28px; }
+
+.gallery-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 20px;
+  scrollbar-width: none;
+}
+.gallery-track::-webkit-scrollbar { display: none; }
+
+.gallery-track img {
+  flex: 0 0 100%;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  scroll-snap-align: center;
+  display: block;
+  background: #f3edf2;
+}
+
+.gallery-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+}
+.gallery-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e2d8e4;
+  transition: background 0.2s, width 0.2s;
+}
+.gallery-dots span.on { width: 18px; border-radius: 4px; background: #c7b6e8; }
 
 .buttons {
   display: flex;
