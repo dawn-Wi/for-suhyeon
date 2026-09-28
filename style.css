@@ -31,7 +31,7 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* �좊떎�덈뒗 �뚯뒪�� �숆렇�쇰� */
+/* 떠다니는 파스텔 동그라미 */
 .blob {
   position: fixed;
   border-radius: 50%;
@@ -81,14 +81,14 @@ body {
   white-space: pre-line;
 }
 
-/* 湲� 湲�(�� �몄궗留�, �ш낵臾�)�� 議곌툑 �묎쾶, �쇱そ �뺣젹 */
+/* 긴 글(홈 인사말, 사과문)은 조금 작게, 왼쪽 정렬 */
 .text.long {
   font-size: 16px;
   line-height: 1.9;
   text-align: left;
 }
 
-/* �ъ쭊 (�놁쑝濡� �섍꺼蹂닿린) */
+/* 사진 (옆으로 넘겨보기) */
 .gallery { margin: -8px 0 28px; }
 
 .gallery-track {
@@ -104,11 +104,10 @@ body {
 .gallery-track img {
   flex: 0 0 100%;
   width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
+  height: min(48vh, 360px);   /* 사진 크기: 숫자를 키우면 커져요 */
+  object-fit: contain;        /* 잘리지 않고 전체가 보임 */
   scroll-snap-align: center;
   display: block;
-  background: #f3edf2;
 }
 
 .gallery-dots {
