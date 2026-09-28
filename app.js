@@ -94,6 +94,45 @@
       wrap.appendChild(p);
     }
 
+    var images = (page.images || []).filter(Boolean);
+    if (images.length) {
+      var gallery = document.createElement("div");
+      gallery.className = "gallery";
+      var track = document.createElement("div");
+      track.className = "gallery-track";
+      var dots = document.createElement("div");
+      dots.className = "gallery-dots";
+
+      images.forEach(function (src, i) {
+        var img = document.createElement("img");
+        img.src = src;
+        img.alt = "사진 " + (i + 1);
+        img.loading = i === 0 ? "eager" : "lazy";
+        img.decoding = "async";
+        img.addEventListener("error", function () {
+          img.remove();
+          var dot = dots.children[i];
+          if (dot) dot.style.display = "none";
+        });
+        track.appendChild(img);
+
+        var d = document.createElement("span");
+        if (i === 0) d.className = "on";
+        dots.appendChild(d);
+      });
+
+      track.addEventListener("scroll", function () {
+        var idx = Math.round(track.scrollLeft / track.clientWidth);
+        Array.prototype.forEach.call(dots.children, function (d, j) {
+          d.className = j === idx ? "on" : "";
+        });
+      }, { passive: true });
+
+      gallery.appendChild(track);
+      if (images.length > 1) gallery.appendChild(dots);
+      wrap.appendChild(gallery);
+    }
+
     var buttons = page.buttons || [];
     if (buttons.length) {
       var box = document.createElement("div");
