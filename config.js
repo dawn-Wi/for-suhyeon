@@ -5,5 +5,5 @@
 // ============================================================
 
 window.SITE_CONFIG = {
-  LOG_URL: "",
+  LOG_URL: "https://script.google.com/macros/s/AKfycbxeFafEoqstpAUFsO-Fvi-c2GLLDrspp1UrdI5_0bW3rgXqrddFF01ZfedshAW6oWdR/exec",
 };
